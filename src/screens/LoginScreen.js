@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   View,
   Text,
@@ -20,9 +21,18 @@ export default function LoginScreen({ navigation }) {
   const emailCorreto = 'email';
   const senhaCorreta = '1234';
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (email === emailCorreto && senha === senhaCorreta) {
-      navigation.navigate('Home');
+      try {
+        await AsyncStorage.setItem('isLoggedIn', 'true');
+        await AsyncStorage.setItem('userEmail', email); 
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'Home' }],
+        });
+      } catch (e) {
+        Alert.alert('Erro', 'Não foi possível salvar o login');
+      }
     } else {
       Alert.alert('Erro de Login', 'Email ou senha incorretos!');
     }
