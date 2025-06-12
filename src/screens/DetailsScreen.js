@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#faebd7', // Cor de fundo da tela
+    backgroundColor: '#f5f5f5', 
   },
   title: {
     fontSize: 20,
@@ -43,9 +43,9 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonContainer: {
-    backgroundColor: '#ffe4c4', // Cor de fundo do container do botão
+    backgroundColor: '#4CAF50', 
     margin: 10,
-    width: windowWidth * 0.8, // 80% da largura da tela
+    width: windowWidth * 0.5, 
     borderRadius: 5,
   },
 });
