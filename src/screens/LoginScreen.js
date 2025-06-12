@@ -25,7 +25,7 @@ export default function LoginScreen({ navigation }) {
     if (email === emailCorreto && senha === senhaCorreta) {
       try {
         await AsyncStorage.setItem('isLoggedIn', 'true');
-        await AsyncStorage.setItem('userEmail', email); 
+        await AsyncStorage.setItem('userEmail', email); // opcional, caso queira usar depois
         navigation.reset({
           index: 0,
           routes: [{ name: 'Home' }],
